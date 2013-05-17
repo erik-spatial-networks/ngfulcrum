@@ -1,0 +1,13 @@
+angular.module('fulcrum',['controllers']).
+	config(function($routeProvider,$locationProvider,$rootScope){
+		$locationProvider.html5Mode(true);
+		$routeProvider.
+			when('/').
+			when('/login').
+			when('/app/:appId').
+			when('/app/:appId/new').
+			when('/record/:recordId').
+			when('/record/:recordId/edit').
+			when('/settings').
+			otherwise({redirectTo:'/'})
+	})

@@ -1,0 +1,33 @@
+<ng-switch on="">
+	
+</ng-switch>
+
+
+<div ng-app="myApp">
+
+<script type="text/ng-template" id="menu_item_renderer.html">
+    <ng-switch on="item.menu != null">
+        <span ng-switch-when="true">
+            <a ng-click="openMenu(item.menu.url)">{{item.menu.label}}</a>
+        </span>
+    </ng-switch>
+    <ng-switch on="item.group != null">
+        <span ng-switch-when="true">
+            <div class="group">{{item.label}} :
+                <ul>
+                    <li ng-repeat="item in item.group" ng-include="'menu_item_renderer.html'"></li>
+                </ul>
+            </div>
+        </span>
+    </ng-switch>
+</script>
+    
+<div ng-controller="someCtrl">
+   <nav>
+    <ul>
+        <li ng-repeat="item in menus" ng-include="'menu_item_renderer.html'"></li>
+    </ul>
+    </nav>
+</div>
+</div>
+
